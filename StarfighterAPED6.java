@@ -9,7 +9,6 @@ package starfighteraped6;
  * @author Ethan Dickey
  * Date Created:: 5/12/16
  * Date Last Modified:: 5/17/16
- * 
  */
 
 import java.awt.Component;
