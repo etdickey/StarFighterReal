@@ -1,4 +1,4 @@
-package starfighteraped6;
+package starfighterreal;
 
 import java.awt.Color;
 import java.awt.Graphics;
@@ -11,32 +11,16 @@ public abstract class MovingThing implements Moveable
     private int height;
     private Color color;
     public MovingThing(){
-        xPos = 10;
-        yPos = 10;
-        width = 10;
-        height = 10;
-        color = new Color(255,0,0);
+        this(10,10,10,10,new Color(255,0,0));
     }
     public MovingThing(int x, int y){
-        xPos = x;
-        yPos = y;
-        width = 10;
-        height = 10;
-        color = new Color(255,0,0);
+        this(x,y,10,10,new Color(255,0,0));
     }
     public MovingThing(int x, int y,Color c){
-        xPos = x;
-        yPos = y;
-        width = 10;
-        height = 10;
-        color = c;
+        this(x,y,10,10,c);
     }
     public MovingThing(int x,int y,int w,int h){
-        xPos = x;
-        yPos = y;
-        width = w;
-        height = h;
-        color = new Color(255,0,0);
+        this(x,y,w,h,new Color(255,0,0));
     }
     public MovingThing(int x,int y,int w,int h,Color c){
         xPos = x;
@@ -74,19 +58,19 @@ public abstract class MovingThing implements Moveable
     }
     @Override
     public int getX(){
-        return xPos;   //finish this method
+        return xPos;
     }
     @Override
     public int getY(){
-        return yPos;  //finish this method
+        return yPos;
     }
     @Override
     public int getWidth(){
-        return width;  //finish this method
+        return width;
     }
     @Override
     public int getHeight(){
-        return height;  //finish this method
+        return height;
     }
     @Override
     public Color getColor(){
@@ -94,6 +78,6 @@ public abstract class MovingThing implements Moveable
     }
     @Override
     public String toString(){
-        return getX()+" "+getY()+" "+getWidth()+" "+getHeight();
+        return getX()+" "+getY()+" "+getWidth()+" "+getHeight()+" "+getColor();
     }
 }

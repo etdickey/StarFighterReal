@@ -1,4 +1,4 @@
-package starfighteraped6;
+package starfighterreal;
 
 import java.io.File;
 import java.net.URL;
@@ -26,7 +26,7 @@ public class Ship extends MovingThing
         super(x, y, w, h);
         speed=s;
         try{
-            URL url = getClass().getResource("/images/ship.jpg");
+            URL url = getClass().getResource("/ship.jpg");
             image = ImageIO.read(url);
         }
         catch(Exception e){
@@ -41,7 +41,6 @@ public class Ship extends MovingThing
     public int getSpeed(){
        return speed;
     }
-
     /**
      *
      * @param direction

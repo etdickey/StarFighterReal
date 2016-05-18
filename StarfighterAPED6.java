@@ -18,11 +18,12 @@ import javax.swing.JFrame;
 
 public class StarfighterAPED6 extends JFrame{
     public static final int WIDTH = 1280;
-    public static final int LENGTH = 1024;
+    public static final int LENGTH = 985;
     public StarfighterAPED6(){
         super("STARFIGHTER");
-        setSize(WIDTH,HEIGHT);
+        setSize(WIDTH,LENGTH);
         this.setTitle("Space Invaders");
+        this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         
 	OuterSpace theGame = new OuterSpace();
 	((Component)theGame).setFocusable(true);

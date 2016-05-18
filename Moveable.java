@@ -3,7 +3,7 @@
 *
 *
 */
-package starfighteraped6;
+package starfighterreal;
 
 public interface Moveable
 {

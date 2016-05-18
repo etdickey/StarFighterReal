@@ -13,6 +13,7 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Image;
 import javax.imageio.ImageIO;
+import static java.lang.System.*;
 
 public class Alien extends MovingThing
 {
@@ -23,35 +24,35 @@ public class Alien extends MovingThing
         this(0,0,30,30,0);
     }
     public Alien(int x, int y){
-        //add code here
+        this(x,y,30,30,0);
     }
     public Alien(int x, int y, int s){
-        //add code here
+        this(x,y,30,30,s);
     }
     public Alien(int x, int y, int w, int h, int s){
-        super(x, y, w,h);
+        super(x,y,w,h);
         speed=s;
         try{
-            URL url = getClass().getResource("/images/alien.jpg");
+            URL url = getClass().getResource("/alien.jpg");
             image = ImageIO.read(url);
         }
         catch(Exception e){
-            //feel free to do something here
+            err.println(e);
         }
     }
+    @Override
     public void setSpeed(int s){
-       //add code
+       speed=s;
     }
+    @Override
     public int getSpeed(){
-       return 0;
+       return speed;
     }
+    @Override
     public void move(String direction){
-       //add code here
+       
     }
     public void draw( Graphics window ){
    	window.drawImage(image,getX(),getY(),getWidth(),getHeight(),null);
-    }
-    public String toString(){
-        return "";
     }
 }

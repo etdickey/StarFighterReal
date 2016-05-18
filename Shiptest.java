@@ -1,4 +1,5 @@
-package starfighteraped6;
+package starfighterreal;
+
 //� A+ Computer Science  -  www.apluscompsci.com
 //Name -
 //Date -

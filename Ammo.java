@@ -1,8 +1,9 @@
+package starfighterreal;
+
 /*
 *@author Ethan Dickey
 *Date Created: 
 */
-package starfighteraped6;
 
 import java.awt.Color;
 import java.awt.Graphics;
