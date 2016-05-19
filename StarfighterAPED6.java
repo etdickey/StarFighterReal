@@ -18,10 +18,10 @@ import javax.swing.JFrame;
 
 public class StarfighterAPED6 extends JFrame{
     public static final int WIDTH = 1280;
-    public static final int LENGTH = 985;
+    public static final int HEIGHT = 985;
     public StarfighterAPED6(){
         super("STARFIGHTER");
-        setSize(WIDTH,LENGTH);
+        setSize(WIDTH,HEIGHT);
         this.setTitle("Space Invaders");
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         

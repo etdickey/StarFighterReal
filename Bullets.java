@@ -17,36 +17,34 @@ import java.util.List;
 
 public class Bullets
 {
-	private List<Ammo> ammo;
+    private List<Ammo> ammo;
 
-	public Bullets()
-	{
-	}
+    public Bullets(){
 
-	public void add(Ammo al)
-	{
-	}
+    }
+    public void add(Ammo al){
 
-	//post - draw each Ammo
-	public void drawEmAll( Graphics window )
-	{
-	}
+    }
 
-	public void moveEmAll()
-	{
-	}
+    //post - draw each Ammo
+    public void drawEmAll(Graphics window){
 
-	public void cleanEmUp()
-	{
-	}
+    }
+    public void moveEmAll(){
 
-	public List<Ammo> getList()
-	{
-		return null;
-	}
-
-	public String toString()
-	{
-		return "";
-	}
+    }
+    public void cleanEmUp(){
+        for(int ab=0;ab<ammo.size();ab++){
+            if(ammo.get(ab).getSpeed()==0){
+                ammo.remove(ab);
+                ab--;
+            }
+        }
+    }
+    public List<Ammo> getList(){
+        return ammo;
+    }
+    public String toString(){
+        return "";
+    }
 }

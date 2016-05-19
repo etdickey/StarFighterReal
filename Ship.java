@@ -47,7 +47,29 @@ public class Ship extends MovingThing
      */
     @Override
     public void move(String direction){
-        
+        if(direction.equals("LEFT")){
+            if(getX()-2>=0){ //screen left param = 0
+                setX(getX()-2);
+            }
+        }
+        if(direction.equals("RIGHT")){
+            if(getX()+getWidth()+2<=1280){ //screen right param = 1280
+                setX(getX()+2);
+            }
+        }
+        if(direction.equals("UP")){
+            if(getY()-2>=0){ //screen upper param = 1280
+                setY(getY()-2);
+            }
+        }
+        if(direction.equals("DOWN")){
+            if(getY()+getHeight()+2<=985){ //screen lower param = 985
+                setY(getY()+2);
+            }
+        }
+        if(direction.equals("SPACE")){
+            //implement
+        }
     }
     @Override
     public void draw(Graphics window){
@@ -55,6 +77,6 @@ public class Ship extends MovingThing
     }
     @Override
     public String toString(){
-        return super.toString() + getSpeed();
+        return super.toString() + " " + getSpeed();
     }
 }
