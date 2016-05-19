@@ -52,7 +52,8 @@ public class Alien extends MovingThing
     public void move(String direction){
        
     }
-    public void draw( Graphics window ){
+    @Override
+    public void draw(Graphics window){
    	window.drawImage(image,getX(),getY(),getWidth(),getHeight(),null);
     }
 }

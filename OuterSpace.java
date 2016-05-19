@@ -63,11 +63,24 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable{
         graphToBack.setColor(Color.BLACK);
         graphToBack.fillRect(0,0,800,600);
 
-        if(keys[0] == true)
-        {
+        if(keys[0] == true){
                 ship.move("LEFT");
         }
-
+        if(keys[1] == true){
+                ship.move("RIGHT");
+        }
+        if(keys[2] == true){
+                ship.move("UP");
+        }
+        if(keys[3] == true){
+                ship.move("DOWN");
+        }
+        if(keys[4] == true){
+                ship.move("SPACE");
+        }
+        if(collide()){
+        
+        }
         //add code to move Ship, Alien, etc.
 
 
@@ -123,5 +136,9 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable{
         }catch(Exception e){
             err.println(e);
         }
+    }
+    private boolean collide() {
+//        if()
+        return false;
     }
 }
