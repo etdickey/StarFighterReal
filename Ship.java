@@ -31,7 +31,7 @@ public class Ship extends MovingThing
 //                    + "src\\StarFighterReal\\ship.jpg");
             //laptop
             File url = new File("C:\\Users\\Administrator\\Desktop\\"
-                    + "School\\CompSci\\Repo\\src\\StarFighterReal\\ship.jpg");
+                    + "School\\CompSci\\Repo\\src\\StarFighterReal\\ship.png");
             image = ImageIO.read(url);
         }
         catch(Exception e){
