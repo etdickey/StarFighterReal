@@ -48,23 +48,23 @@ public class Ship extends MovingThing
     @Override
     public void move(String direction){
         if(direction.equals("LEFT")){
-            if(getX()-2>=0){ //screen left param = 0
-                setX(getX()-2);
+            if(getX()-getSpeed()>=0){ //screen left param = 0
+                setX(getX()-getSpeed());
             }
         }
         if(direction.equals("RIGHT")){
-            if(getX()+getWidth()+2<=1280){ //screen right param = 1280
-                setX(getX()+2);
+            if(getX()+getWidth()+getSpeed()<=1280){ //screen right param = 1280
+                setX(getX()+getSpeed());
             }
         }
         if(direction.equals("UP")){
-            if(getY()-2>=0){ //screen upper param = 1280
-                setY(getY()-2);
+            if(getY()-getSpeed()>=0){ //screen upper param = 1280
+                setY(getY()-getSpeed());
             }
         }
         if(direction.equals("DOWN")){
-            if(getY()+getHeight()+2<=985){ //screen lower param = 985
-                setY(getY()+2);
+            if(getY()+getHeight()+getSpeed()<=985){ //screen lower param = 985
+                setY(getY()+getSpeed());
             }
         }
         if(direction.equals("SPACE")){

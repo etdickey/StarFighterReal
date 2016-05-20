@@ -48,6 +48,9 @@ public class Ammo extends MovingThing
         setY(getY()-getSpeed());
     }
     @Override
+    /*
+    *@param return format x y speed
+    */
     public String toString(){
         return getX()+" "+getY()+" "+getSpeed();
     }
