@@ -38,19 +38,17 @@ public class Ammo extends MovingThing
     }
     @Override
     public void draw(Graphics window){
-        //add code to draw the ammo
+        Color temp = window.getColor();
+        window.setColor(new Color(255,0,0));
+        window.fillRect(getX(), getY(), getWidth(), getHeight());
+        window.setColor(temp);
     }
     @Override
-    public void move(String direction) {
-        throw new UnsupportedOperationException("Not supported yet.");
+    public void move(String direction){ //doesn't use direction
+        setY(getY()-getSpeed());
     }
-//    @Override
-//    public String toString(){
-//        return "";
-//    }
-
     @Override
-    public Color getColor() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public String toString(){
+        return getX()+" "+getY()+" "+getSpeed();
     }
 }
