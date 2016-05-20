@@ -33,7 +33,8 @@ public class Alien extends MovingThing
         super(x,y,w,h);
         speed=s;
         try{
-            URL url = getClass().getResource("/alien.jpg");
+            File url = new File("H:\\CompSci\\Programs\\StarfighterAPED6\\"
+                    + "src\\StarFighterReal\\alien.jpg");
             image = ImageIO.read(url);
         }
         catch(Exception e){
