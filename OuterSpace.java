@@ -19,6 +19,8 @@ import java.awt.image.BufferedImage;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import static java.lang.System.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 public class OuterSpace extends Canvas implements KeyListener, Runnable{
     
     private Ship ship;
@@ -37,7 +39,7 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable{
         keys = new boolean[5];
         ship = new Ship(640,773,20,20,2);
         alienOne = new Alien(20,20,3);
-        alienTwo = new Alien(70,70,3);
+        alienTwo = new Alien(70,20,3);
         this.addKeyListener(this);
         new Thread(this).start();
         setVisible(true);
@@ -61,10 +63,10 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable{
         graphToBack.setColor(Color.BLUE);
         graphToBack.drawString("StarFighter ", 25, 50 );
         graphToBack.setColor(Color.BLUE);
-        graphToBack.fillRect(0,0,800,600);
-        ship.draw(window);
-        alienOne.draw(window);
-        alienTwo.draw(window);
+        graphToBack.fillRect(0,0,1280,985);
+        ship.draw(graphToBack);
+        alienOne.draw(graphToBack);
+        alienTwo.draw(graphToBack);
         
         if(keys[0] == true){
                 ship.move("LEFT");
@@ -85,11 +87,8 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable{
         
         }
         //add code to move Ship, Alien, etc.
-
-
         //add in collision detection to see if Bullets hit the Aliens and if Bullets hit the Ship
-
-
+        
         twoDGraph.drawImage(back, null, 0, 0);
     }
     public void keyPressed(KeyEvent e){
