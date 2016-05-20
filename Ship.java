@@ -26,8 +26,12 @@ public class Ship extends MovingThing
         super(x, y, w, h);
         speed=s;
         try{
-            File url = new File("H:\\CompSci\\Programs\\StarfighterAPED6\\"
-                    + "src\\StarFighterReal\\ship.jpg");
+            //desktop
+//            File url = new File("H:\\CompSci\\Programs\\StarfighterAPED6\\"
+//                    + "src\\StarFighterReal\\ship.jpg");
+            //laptop
+            File url = new File("C:\\Users\\Administrator\\Desktop\\"
+                    + "School\\CompSci\\Repo\\src\\StarFighterReal\\ship.jpg");
             image = ImageIO.read(url);
         }
         catch(Exception e){

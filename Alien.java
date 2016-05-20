@@ -33,12 +33,16 @@ public class Alien extends MovingThing
         super(x,y,w,h);
         speed=s;
         try{
-            File url = new File("H:\\CompSci\\Programs\\StarfighterAPED6\\"
-                    + "src\\StarFighterReal\\alien.jpg");
+            //desktop
+//            File url = new File("H:\\CompSci\\Programs\\StarfighterAPED6\\"
+//                    + "src\\StarFighterReal\\alien.jpg");
+            //laptop
+            File url = new File("C:\\Users\\Administrator\\Desktop\\"
+                    + "School\\CompSci\\Repo\\src\\StarFighterReal\\alien.jpg");
             image = ImageIO.read(url);
         }
         catch(Exception e){
-            err.println(e);
+            err.println(e +" alien constructor");
         }
     }
     @Override
