@@ -30,7 +30,7 @@ public class Ship extends MovingThing
             image = ImageIO.read(url);
         }
         catch(Exception e){
-            err.println(e);
+            err.println(e + " ship constructor");
         }
     }
     @Override

@@ -60,9 +60,12 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable{
 
         graphToBack.setColor(Color.BLUE);
         graphToBack.drawString("StarFighter ", 25, 50 );
-        graphToBack.setColor(Color.BLACK);
+        graphToBack.setColor(Color.BLUE);
         graphToBack.fillRect(0,0,800,600);
-
+        ship.draw(window);
+        alienOne.draw(window);
+        alienTwo.draw(window);
+        
         if(keys[0] == true){
                 ship.move("LEFT");
         }
@@ -134,7 +137,7 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable{
                 repaint();
             }
         }catch(Exception e){
-            err.println(e);
+            err.println(e + "run()");
         }
     }
     private boolean collide() {
