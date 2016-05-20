@@ -38,23 +38,28 @@ public class AlienHorde
 	}
 	public void moveEmAll(){
             int rand = (int)(Math.random()*2+1);
-            int xAmount = (int)(Math.random()*5+1)*(int)(Math.pow((-1), rand));
+            int xAmount;
+            if(((int)(Math.random()*3+1)*(int)(Math.pow((-1), rand)))+aliens.get(0).getX()>0)
+                xAmount = (int)(Math.random()*3+1)*(int)(Math.pow((-1), rand));
+            else
+                xAmount = (int)(Math.random()*3+1);
 //            out.println("-1^"+rand+" = "+Math.pow((-1), rand));
 //            out.println("== "+xAmount);
-            int yAmount = (int)(Math.random()*5+1);
-            
+            int yAmount = (int)(Math.random()*3+1);
             aliens.forEach((ab) -> {
                 ab.setX(xAmount);
                 ab.setY(yAmount);
             });
 	}
-	public void removeDeadOnes(List<Ammo> shots){
-            aliens.forEach((ab) -> {
-//                if(ab.getWidth) //fix
-            });
+	public void removeDeadOnes(Bullets bull){
+            for(int ab=0;ab<aliens.size();ab++){
+                if(aliens.get(ab).getSpeed()==0){
+                    aliens.remove(ab);
+                    ab--;
+                }
+            }
 	}
 	public String toString(){
-            
-		return "asdf";
+            return "not implemeneted yet";
 	}
 }
