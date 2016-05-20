@@ -26,8 +26,8 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable{
     private Ship ship;
     private Alien alienOne;
     private Alien alienTwo;
-    private AlienHorde horde; //fix
-//    private Bullets shots; //fix
+    private AlienHorde horde; //implement
+    private Bullets shots; //fix
     private boolean[] keys;
     private BufferedImage back;
     
@@ -38,6 +38,7 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable{
         alienOne = new Alien(20,20,3);
         alienTwo = new Alien(70,20,3);
         horde = new AlienHorde(9);
+        shots = new Bullets();
         this.addKeyListener(this);
         new Thread(this).start();
         setVisible(true);
@@ -45,7 +46,7 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable{
     public void update(Graphics window){
         paint(window);
     }
-    public void paint( Graphics window ){
+    public void paint(Graphics window){
         //set up the double buffering to make the game animation nice and smooth
         Graphics2D twoDGraph = (Graphics2D)window;
 
@@ -66,20 +67,23 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable{
         alienOne.draw(graphToBack);
         alienTwo.draw(graphToBack);
         horde.moveEmAll();
+        horde.removeDeadOnes(shots);
+        horde.drawEmAll(graphToBack);
         if(keys[0] == true){
-                ship.move("LEFT");
+            ship.move("LEFT");
         }
         if(keys[1] == true){
-                ship.move("RIGHT");
+            ship.move("RIGHT");
         }
         if(keys[2] == true){
-                ship.move("UP");
+            ship.move("UP");
         }
         if(keys[3] == true){
-                ship.move("DOWN");
+            ship.move("DOWN");
         }
         if(keys[4] == true){
-                ship.move("SPACE");
+            //add more here
+            ship.move("SPACE");
         }
         if(collide()){
         
