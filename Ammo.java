@@ -15,17 +15,17 @@ public class Ammo extends MovingThing
 {
     private int speed;
     public Ammo(){
-        this(0,0,0); //fix
+        this(20,20,2); //fix
     }
     public Ammo(int x,int y){
-        super(x,y);
+        super(x,y,8,10);
     }
     public Ammo(int x,int y,int s){
-        super(x,y);
+        super(x,y,8,10,new Color(255,0,0));
         speed = s;
     }
     public Ammo(int x,int y,int s,Color c){
-        super(x,y,c);
+        super(x,y,8,10,c);
         speed = s;
     }
     @Override
@@ -39,7 +39,7 @@ public class Ammo extends MovingThing
     @Override
     public void draw(Graphics window){
         Color temp = window.getColor();
-        window.setColor(new Color(255,0,0));
+        window.setColor(getColor());
         window.fillRect(getX(), getY(), getWidth(), getHeight());
         window.setColor(temp);
     }
