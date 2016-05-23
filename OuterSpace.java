@@ -37,7 +37,7 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable{
         ship = new Ship(640,773,20,20,2);
         alienOne = new Alien(20,20,3);
         alienTwo = new Alien(70,20,3);
-        horde = new AlienHorde(24);
+        horde = new AlienHorde(5);
         shots = new Bullets();
         this.addKeyListener(this);
         new Thread(this).start();
@@ -90,9 +90,7 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable{
             shots.add(new Ammo(ship.getX()+(ship.getWidth()/2)-4,ship.getY()-10,2));
             ship.move("SPACE");
         }
-        if(collide()){
-        
-        }
+        collide();
         //add code to move Ship, Alien, etc.
         //add in collision detection to see if Bullets hit the Aliens and if Bullets hit the Ship
         
@@ -139,7 +137,7 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable{
         try{
             while(true)
             {
-                Thread.currentThread().sleep(5);
+                Thread.currentThread().sleep(500);
                 repaint();
             }
         }catch(Exception e){
@@ -147,7 +145,9 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable{
         }
     }
     private boolean collide() {
-//        if()
+        if(){
+            
+        }
         return false;
     }
 }

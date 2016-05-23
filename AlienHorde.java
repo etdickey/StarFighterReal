@@ -62,10 +62,17 @@ public class AlienHorde
         }
     }
     public void removeDeadOnes(Bullets bull){ //fix to collide
+        List<Ammo> ammo = bull.getList();
         for(int ab=0;ab<aliens.size();ab++){
-            if(aliens.get(ab).getY()>985){
+            if(aliens.get(ab).getY()>985)
+            {
                 aliens.remove(ab);
                 ab--;
+            }
+            else{
+                for(int jz=0;jz<ammo.size();jz++){
+                    if(aliens.get(ab).get)
+                }
             }
 //            if(aliens.get(ab).getSpeed()==0){
 //                aliens.remove(ab);

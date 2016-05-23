@@ -5,6 +5,8 @@ import java.net.URL;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Image;
+import java.awt.Rectangle;
+import java.awt.Shape;
 import javax.imageio.ImageIO;
 import static java.lang.System.*;
 
@@ -45,6 +47,9 @@ public class Ship extends MovingThing
     @Override
     public int getSpeed(){
        return speed;
+    }
+    public Shape getShape(){
+        return new Rectangle(getX(),getY(),getWidth(),getHeight());
     }
     /**
      *

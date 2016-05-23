@@ -8,8 +8,9 @@ package starfighterreal;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Image;
+import java.awt.Rectangle;
+import java.awt.Shape;
 import java.io.File;
-import javax.imageio.ImageIO;
 
 public class Ammo extends MovingThing
 {
@@ -35,6 +36,9 @@ public class Ammo extends MovingThing
     @Override
     public int getSpeed(){
        return speed;
+    }
+    public Shape getShape(){
+        return new Rectangle(this.getX(),getY(),getWidth(),getHeight());
     }
     @Override
     public void draw(Graphics window){
