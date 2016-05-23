@@ -10,6 +10,7 @@ package starfighterreal;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Image;
+import java.awt.geom.Rectangle2D;
 import java.io.File;
 import javax.imageio.ImageIO;
 import java.util.ArrayList;
@@ -36,8 +37,14 @@ public class AlienHorde
     public void addAlien(Alien al){
         aliens.add(al);
     }
+    public List<Alien> getList(){
+        return aliens;
+    }
+    public void remove(int index){
+        aliens.remove(index);
+    }
     public boolean isEmpty() {
-    return aliens.isEmpty();}
+        return aliens.isEmpty();}
     public void drawEmAll(Graphics window){
         aliens.stream().forEach((ab) -> {
             ab.draw(window);
@@ -62,40 +69,26 @@ public class AlienHorde
         }
     }
     public void removeDeadOnes(Bullets bull){ //fix to collide
-        List<Ammo> ammo = bull.getList();
         for(int ab=0;ab<aliens.size();ab++){
-            if(aliens.get(ab).getY()>985)
-            {
+            if(aliens.get(ab).getSpeed()==0)
                 aliens.remove(ab);
-                ab--;
-            }
-            else{
-                for(int jz=0;jz<ammo.size();jz++){
-                    if(aliens.get(ab).get)
-                        Area areaA = new Area(shapeA);
-                        areaA.intersect(new Area(shapeB));
-                        return !areaA.isEmpty();
-                }
-            }
-//            if(aliens.get(ab).getSpeed()==0){
-//                aliens.remove(ab);
-//                ab--;
-//            }
         }
+////            if(aliens.get(ab).getSpeed()==0){
+////                aliens.remove(ab);
+////                ab--;
+////            }
+//        }
     }
     public String toString(){
         return "not implemeneted yet";
     }
-
     public void refresh(){
         for(int i=0;i<alienPerm.size();i++){
             aliens.add(alienPerm.get(i));
         }
         for(int i=0;i<alienPerm.size();i++){
-//                Alien temp = new Alien((i*50+20),20);
             addAlien(new Alien(i*50+20,20));
-//                aliens.add(new Alien((i*50+20),20));
-//                aliens.add(temp);
+
         }
     }
 }

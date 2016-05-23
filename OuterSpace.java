@@ -17,8 +17,10 @@ import java.awt.event.KeyEvent;
 import static java.lang.Character.*;
 import java.awt.image.BufferedImage;
 import java.awt.event.ActionListener;
+import java.awt.geom.Rectangle2D;
 import java.util.ArrayList;
 import static java.lang.System.*;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 public class OuterSpace extends Canvas implements KeyListener, Runnable{
@@ -63,16 +65,19 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable{
         graphToBack.drawString("StarFighter ", 25, 50 );
         graphToBack.setColor(Color.BLUE);
         graphToBack.fillRect(0,0,1280,985);
+        //draw singles
         ship.draw(graphToBack);
         alienOne.draw(graphToBack);
         alienTwo.draw(graphToBack);
+        //horde dealings
         if(horde.isEmpty())
             horde.refresh();
         horde.moveEmAll();
         horde.removeDeadOnes(shots);
         horde.drawEmAll(graphToBack);
+        //shots dealings
         shots.moveEmAll();
-        shots.cleanEmUp();
+        shots.cleanEmUp(); //don't need
         shots.drawEmAll(graphToBack);
         if(keys[0] == true){
             ship.move("LEFT");
@@ -88,9 +93,31 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable{
         }
         if(keys[4] == true){
             shots.add(new Ammo(ship.getX()+(ship.getWidth()/2)-4,ship.getY()-10,2));
-            ship.move("SPACE");
         }
-        collide();
+        //collision detection
+        List<Ammo> ammo = shots.getList();
+        List<Alien> aliens = horde.getList();
+        for(int ab=0;ab<aliens.size();ab++){
+            if(aliens.get(ab).getY()>985)
+            {
+//                aliens.get(ab).setSpeed(0);
+                horde.remove(ab);
+                ab--;
+            }
+            else{
+                for(int jz=0;jz<ammo.size();jz++){
+                    if(aliens.get(ab).getShape().intersects((Rectangle2D)(ammo.get(jz).getShape()))){
+//                        aliens.get(ab).setSpeed(0);
+                        horde.remove(ab);
+                        shots.remove(jz);
+//                        ammo.get(jz).setSpeed(0);
+                        jz=ammo.size();
+                        ab--;
+                    }
+                }
+            }
+        }
+        
         //add code to move Ship, Alien, etc.
         //add in collision detection to see if Bullets hit the Aliens and if Bullets hit the Ship
         
@@ -137,17 +164,17 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable{
         try{
             while(true)
             {
-                Thread.currentThread().sleep(500);
+                Thread.currentThread().sleep(5);
                 repaint();
             }
         }catch(Exception e){
             err.println(e + "run()");
         }
     }
-    private boolean collide() {
-        if(){
-            
-        }
-        return false;
-    }
+//    private boolean collide() {
+////        if(){
+////            
+////        }
+//        return false;
+//    }
 }

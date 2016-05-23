@@ -12,6 +12,8 @@ import java.net.URL;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Image;
+import java.awt.Rectangle;
+import java.awt.Shape;
 import javax.imageio.ImageIO;
 import static java.lang.System.*;
 
@@ -34,11 +36,11 @@ public class Alien extends MovingThing
         speed=s;
         try{
             //desktop
-//            File url = new File("H:\\CompSci\\Programs\\StarfighterAPED6\\"
-//                    + "src\\StarFighterReal\\alien.jpg");
+            File url = new File("H:\\CompSci\\Programs\\StarfighterAPED6\\"
+                    + "src\\StarFighterReal\\alien.jpg");
             //laptop
-            File url = new File("C:\\Users\\Administrator\\Desktop\\"
-                    + "School\\CompSci\\Repo\\src\\StarFighterReal\\alien.jpg");
+//            File url = new File("C:\\Users\\Administrator\\Desktop\\"
+//                    + "School\\CompSci\\Repo\\src\\StarFighterReal\\alien.jpg");
             image = ImageIO.read(url);
         }
         catch(Exception e){
@@ -52,6 +54,9 @@ public class Alien extends MovingThing
     @Override
     public int getSpeed(){
        return speed;
+    }
+    public Shape getShape(){
+        return new Rectangle(getX(),getY(),getWidth(),getHeight());
     }
     @Override
     public void move(String direction){

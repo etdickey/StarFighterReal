@@ -37,6 +37,9 @@ public class Bullets
             ab.move("UP");//doesn't use the string
         });
     }
+    public void remove(int index){
+        ammo.remove(index);
+    }
     public void cleanEmUp(){ //remove all of the "dead" bullets (with 0 speed)
         for(int ab=0;ab<ammo.size();ab++){
             if(ammo.get(ab).getSpeed()==0){
