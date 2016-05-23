@@ -72,6 +72,9 @@ public class AlienHorde
             else{
                 for(int jz=0;jz<ammo.size();jz++){
                     if(aliens.get(ab).get)
+                        Area areaA = new Area(shapeA);
+                        areaA.intersect(new Area(shapeB));
+                        return !areaA.isEmpty();
                 }
             }
 //            if(aliens.get(ab).getSpeed()==0){
