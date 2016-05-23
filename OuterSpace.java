@@ -73,7 +73,7 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable{
         if(horde.isEmpty())
             horde.refresh();
         horde.moveEmAll();
-        horde.removeDeadOnes(shots);
+        horde.removeDeadOnes();
         horde.drawEmAll(graphToBack);
         //shots dealings
         shots.moveEmAll();

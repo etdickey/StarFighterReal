@@ -36,11 +36,11 @@ public class Alien extends MovingThing
         speed=s;
         try{
             //desktop
-            File url = new File("H:\\CompSci\\Programs\\StarfighterAPED6\\"
-                    + "src\\StarFighterReal\\alien.jpg");
+//            File url = new File("H:\\CompSci\\Programs\\StarfighterAPED6\\"
+//                    + "src\\StarFighterReal\\alien.jpg");
             //laptop
-//            File url = new File("C:\\Users\\Administrator\\Desktop\\"
-//                    + "School\\CompSci\\Repo\\src\\StarFighterReal\\alien.jpg");
+            File url = new File("C:\\Users\\Administrator\\Desktop\\"
+                    + "School\\CompSci\\Repo\\src\\StarFighterReal\\alien.jpg");
             image = ImageIO.read(url);
         }
         catch(Exception e){

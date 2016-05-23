@@ -68,7 +68,7 @@ public class AlienHorde
             });
         }
     }
-    public void removeDeadOnes(Bullets bull){ //fix to collide
+    public void removeDeadOnes(){ //fix to collide
         for(int ab=0;ab<aliens.size();ab++){
             if(aliens.get(ab).getSpeed()==0)
                 aliens.remove(ab);
