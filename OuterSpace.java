@@ -11,6 +11,7 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Canvas;
+import java.awt.Shape;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.KeyEvent;
@@ -97,12 +98,16 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable{
         //collision detection
         List<Ammo> ammo = shots.getList();
         List<Alien> aliens = horde.getList();
+        Shape sh = ship.getShape();
         for(int ab=0;ab<aliens.size();ab++){
             if(aliens.get(ab).getY()>985)
             {
 //                aliens.get(ab).setSpeed(0);
                 horde.remove(ab);
                 ab--;
+            }
+            else if(aliens.get(ab).getShape().intersects((Rectangle2D)sh)){
+                gameOver();
             }
             else{
                 for(int jz=0;jz<ammo.size();jz++){
@@ -117,10 +122,6 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable{
                 }
             }
         }
-        
-        //add code to move Ship, Alien, etc.
-        //add in collision detection to see if Bullets hit the Aliens and if Bullets hit the Ship
-        
         twoDGraph.drawImage(back, null, 0, 0);
     }
     public void keyPressed(KeyEvent e){
@@ -177,4 +178,35 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable{
 ////        }
 //        return false;
 //    }
+
+    private void gameOver() {
+        err.println("  GGGGGGG              AAAAA           MMM               MMM  EEEEEEEEEEEE");
+        err.println(" GGG   GGG            AAA AAA          MMMM             MMMM  EEEEEEEEEEEE");
+        err.println("GGG     GGG          AAA   AAA         MMMMM           MMMMM  EEE");
+        err.println("GGG                 AAA     AAA        MMMMMM         MMMMMM  EEE");
+        err.println("GGG    G           AAA       AAA       MMM MMM       MMM MMM  EEEEEEEEEE");
+        err.println("GGG   GGGGG       AAAAAAAAAAAAAAA      MMM  MMM     MMM  MMM  EEEEEEEEEE");
+        err.println("GGG   G  GGG     AAAAAAAAAAAAAAAAA     MMM   MMM   MMM   MMM  EEE");
+        err.println("GGG     GGG     AAA             AAA    MMM    MMM MMM    MMM  EEE");
+        err.println(" GGG   GGG     AAA               AAA   MMM     MMMMM     MMM  EEEEEEEEEEEE");
+        err.println("  GGGGGGG     AAA                 AAA  MMM      MMM      MMM  EEEEEEEEEEEE");
+        err.println("");
+        err.println("    OOOOOO    VVV                 VVV  EEEEEEEEEEEE  RRRRRRRRR");
+        err.println("   OOO  OOO    VVV               VVV   EEEEEEEEEEEE  RRR    RRR");
+        err.println("  OOO    OOO    VVV             VVV    EEE           RRR     RRR");
+        err.println(" OOO      OOO    VVV           VVV     EEE           RRR      RRR");
+        err.println("OOO        OOO    VVV         VVV      EEEEEEEEEE    RRR     RRR");
+        err.println("OOO        OOO     VVV       VVV       EEEEEEEEEE    RRRRRRRRRR");
+        err.println(" OOO      OOO       VVV     VVV        EEE           RRR    RRR");
+        err.println("  OOO    OOO         VVV   VVV         EEE           RRR     RRR");
+        err.println("   OOO  OOO           VVV VVV          EEEEEEEEEEEE  RRR      RRR");
+        err.println("    OOOOOO             VVVVV           EEEEEEEEEEEE  RRR       RRR");
+        
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException ex) {
+            Logger.getLogger(OuterSpace.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        System.exit(0);
+    }
 }
