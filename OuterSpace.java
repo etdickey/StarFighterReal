@@ -33,7 +33,7 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable{
     private Bullets shots; //fix
     private boolean[] keys;
     private BufferedImage back;
-    
+    int num =0;
     public OuterSpace(){
         setBackground(Color.black);
         keys = new boolean[5];
@@ -52,7 +52,7 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable{
     public void paint(Graphics window){
         //set up the double buffering to make the game animation nice and smooth
         Graphics2D twoDGraph = (Graphics2D)window;
-
+        num++;
         //take a snap shop of the current screen and same it as an image
         //that is the exact same width and height as the current screen
         if(back==null)
@@ -68,8 +68,8 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable{
         graphToBack.fillRect(0,0,1280,985);
         //draw singles
         ship.draw(graphToBack);
-        alienOne.draw(graphToBack);
-        alienTwo.draw(graphToBack);
+//        alienOne.draw(graphToBack);
+//        alienTwo.draw(graphToBack);
         //horde dealings
         if(horde.isEmpty())
             horde.refresh();
@@ -93,7 +93,11 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable{
             ship.move("DOWN");
         }
         if(keys[4] == true){
-            shots.add(new Ammo(ship.getX()+(ship.getWidth()/2)-4,ship.getY()-10,2));
+            if(num%5 == 0)
+                shots.add(new Ammo(ship.getX()+(ship.getWidth()/2)-4,ship.getY()-10,2));
+            if(num == 100)
+                num=0;
+            
         }
         //collision detection
         List<Ammo> ammo = shots.getList();
